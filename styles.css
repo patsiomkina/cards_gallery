@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap'); 
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  overflow: hidden;
+  margin: 0;
+  background: #111;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
+}
+
+.slide {
+    height: 80vh; /*высота 80% от видимой части экрана*/
+    border-radius: 20px; /*закругление углов картинок*/
+    margin: 10px; /*расстояние между картинками*/
+    cursor: pointer; /*при наведении на слайд появится "ручка*/
+    color: white;
+    flex: 1; /*элементы (слайды) пропорционально займут экран*/
+    background-size: cover; /*Масштабирует изображение с сохранением пропорций так, чтобы его ширина или высота равнялась ширине или высоте блока*/
+    background-position: center; /*установка изображения в центральное положение (центр экрана)*/
+    background-repeat: no-repeat; /*запретить повторение, показать только одно изображение*/
+    position: relative;
+    transition: all 500ms ease-in-out;
+}
+
+.slide h3 {
+    position: absolute;
+    font-size: 24px;
+    bottom: 20px;
+    left: 20PX;
+    margin: 0;
+    opacity: 0; /*элемент не отображается - надпись не видна на НЕактивных слайдах*/
+    text-shadow: 0px 0px 5px black; /*тень вокруг текста, чтобы не сливался с фоном*/
+}
+
+.slide.active {
+    flex: 10; /*активный слайд будет больше остальных в 10 раз*/
+}
+
+.slide.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
